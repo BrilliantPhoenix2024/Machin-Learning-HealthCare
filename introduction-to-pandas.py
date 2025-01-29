@@ -99,6 +99,40 @@ print(f'select specific column: \n {select_specific_column1}')
 select_specific_column2 = car_sales[car_sales['Odometer (KM)'] > 100000]
 print(f'select specific column: \n {select_specific_column2}')
 
+# crosstab()
+compare_two_columns = pd.crosstab(car_sales['Make'], car_sales['Doors'])
+print(f'compare two columns: \n {compare_two_columns}')
+
+
+# Groupby()
+group_by_specific_column = car_sales.groupby(['Make']).mean(numeric_only=True)
+print(group_by_specific_column)
+
+# Plot the Odometer column
+car_sales['Odometer (KM)'].plot()
+# Add a title and labels
+plt.title("Car Mileage")
+plt.xlabel("Car Index")
+plt.ylabel("Odometer (KM)")
+
+# Display the graph
+plt.show()
+
+
+car_sales['Odometer (KM)'].hist()
+plt.show()
+
+
+# Remove $ and commas from prices
+car_sales["Price"] = (
+    car_sales["Price"]
+    .str.replace(r"[$,]", "", regex=True)
+    .astype(float)
+    .astype(int)
+)
+
+car_sales["Price"].plot()
+plt.show()
 
 
 
