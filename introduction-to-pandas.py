@@ -135,6 +135,29 @@ car_sales["Price"].plot()
 plt.show()
 
 
+# Manipulating Data
+car_sales['Make'] = car_sales['Make'].str.lower()
+car_sales_missing = pd.read_csv('car-sales-missing-data.csv')
+print(car_sales_missing)
+
+car_sales_missing['Odometer'] = car_sales_missing['Odometer'].fillna(car_sales_missing['Odometer'].mean())
+print(car_sales_missing)
+
+
+# Remove rows containing missing values
+car_sales_missing_dropped = car_sales_missing.dropna()
+
+print("##############")
+print(car_sales_missing_dropped)
+
+# Export to CSV
+car_sales_missing_dropped.to_csv(
+    "car-sales-missing-dropped.csv",
+    index=False
+)
+
+print("CSV file exported successfully!")
+
 
 
 
