@@ -159,5 +159,39 @@ car_sales_missing_dropped.to_csv(
 print("CSV file exported successfully!")
 
 
+# Column from Series
+seats_column = pd.Series([5, 5, 5, 5, 5])
+
+# Create a new Seats column
+car_sales["Seats"] = seats_column
+
+# Replace missing values with 5
+car_sales["Seats"] = car_sales["Seats"].fillna(5)
+
+print("@@@@@@@@@")
+print(car_sales)
+
+# Create a new column from a Python list
+fuel_economy = [7.5, 9.2, 5.0, 8.7, 5.6, 9.5, 4.7, 2.6, 6.1, 3.0]
+
+car_sales["Fuel per 100KM"] = fuel_economy
+
+print("!!!!!!!!!!!")
+print(car_sales)
+
+car_sales['Total fuel used (L)'] = car_sales['Odometer (KM)'] / 100 * car_sales['Fuel per 100KM']
+print('&&&&&&&&&&&')
+print(car_sales)
+
+# Create a column from a single value
+car_sales['Number of wheels'] = 4
+print('&&&&&&&&&&&')
+print(car_sales)
+
+# Removing a column
+car_sales.drop('Seats', axis=1, inplace=True)
+print('&&&&&&&&&&&')
+print(car_sales)
+
 
 
