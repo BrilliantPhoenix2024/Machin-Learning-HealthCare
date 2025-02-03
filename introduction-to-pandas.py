@@ -3,6 +3,13 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 
+
+pd.set_option('display.max_columns', None)
+pd.set_option('display.max_rows', None)
+pd.set_option('display.width', None)
+pd.set_option('display.max_colwidth', None)
+
+
 # Two main datatypes:
 
 # series -> 1-dimensional
@@ -191,6 +198,29 @@ print(car_sales)
 # Removing a column
 car_sales.drop('Seats', axis=1, inplace=True)
 print('&&&&&&&&&&&')
+print(car_sales)
+
+# Shuffle the half of the DataFrame
+shuffled_frac_half = car_sales.sample(frac=0.5)
+print('shuffled_frac_half')
+print(shuffled_frac_half)
+
+# Shuffle the whole of the DataFrame
+shuffled_whole = car_sales.sample(frac=1)
+print('shuffled_whole')
+print(shuffled_whole)
+
+# Shuffle or Only select 20% of data
+shuffled_20_percent = car_sales.sample(frac=0.2)
+print("Shuffle or Only select 20% of data")
+print(shuffled_20_percent)
+
+# Change one column attribute -> Convert KM to Miles
+car_sales['Odometer (KM)'] = car_sales['Odometer (KM)'].apply(lambda x: x / 1.6)
+
+# Rename the column
+car_sales.rename(columns={'Odometer (KM)': 'Odometer (Mile)'}, inplace=True)
+print("Change column from KM to Miles")
 print(car_sales)
 
 
