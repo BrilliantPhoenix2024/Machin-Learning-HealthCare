@@ -30,3 +30,4 @@ Thumbs.db
 !.env.example
 
 exported_car_sales.csv
+main.py
