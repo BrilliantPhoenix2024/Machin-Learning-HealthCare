@@ -32,3 +32,25 @@ df = pd.DataFrame(a2)
 print(df)
 
 
+# Creating NumPy arrays
+sample_array = np.array([1, 2, 3])
+print(f'***{sample_array.dtype}, {sample_array}')
+
+ones = np.ones((2, 3))
+print(ones, ones.dtype, type(ones))
+
+zeros = np.zeros((2, 3))
+print(zeros)
+
+range_array = np.arange(0, 10, 2)
+print(range_array)
+
+random_array_1 = np.random.randint(0, 10, size=(3, 5))
+print(random_array_1, random_array_1.size, random_array_1.shape)
+
+random_array_2 = np.random.random((5, 3))
+print(f'*** {random_array_2}, {random_array_2.shape}')
+
+random_array_3 = np.random.rand(5, 3)
+print(f'Rand#### {random_array_3}')
+
