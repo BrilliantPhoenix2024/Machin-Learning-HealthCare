@@ -54,3 +54,7 @@ print(f'*** {random_array_2}, {random_array_2.shape}')
 random_array_3 = np.random.rand(5, 3)
 print(f'Rand#### {random_array_3}')
 
+# Pseudo-Random Numbers
+pseudo_random = np.random.seed(0)  # No matter what the number of seed is
+random_number_4 = np.random.randint(10, size=(5, 3))
+print(random_number_4, random_number_4.shape)
