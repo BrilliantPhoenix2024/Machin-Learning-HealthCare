@@ -58,3 +58,15 @@ print(f'Rand#### {random_array_3}')
 pseudo_random = np.random.seed(0)  # No matter what the number of seed is
 random_number_4 = np.random.randint(10, size=(5, 3))
 print(random_number_4, random_number_4.shape)
+
+# Viewing Arrays and Matrices
+unique_number = np.unique(random_number_4)
+print(unique_number)
+
+a4 = np.random.randint(10, size=(2, 3, 4, 5))
+print(a4)
+
+# Get the first 4 number of the inner most arrays
+print(f'$$$$$$$$$$$$$$$$ \n {a4[:, :, :2, :1]}')
+print(a4[:, :, :2, :1].shape)
+
