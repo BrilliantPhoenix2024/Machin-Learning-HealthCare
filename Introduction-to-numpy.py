@@ -36,7 +36,7 @@ print(df)
 sample_array = np.array([1, 2, 3])
 print(f'***{sample_array.dtype}, {sample_array}')
 
-ones = np.ones((2, 3))
+ones = np.ones((2, 6))
 print(ones, ones.dtype, type(ones))
 
 zeros = np.zeros((2, 3))
@@ -66,7 +66,51 @@ print(unique_number)
 a4 = np.random.randint(10, size=(2, 3, 4, 5))
 print(a4)
 
-# Get the first 4 number of the inner most arrays
+# Get the first 4 number of the innermost arrays
 print(f'$$$$$$$$$$$$$$$$ \n {a4[:, :, :2, :1]}')
 print(a4[:, :, :2, :1].shape)
 
+
+# Manipulating & Comparing Arrays
+# Arithmetic
+
+plus1 = a1 + ones
+print(plus1)
+
+plus2 = np.add(a1, ones)
+print(plus2)
+
+minus = a1 - ones
+print(minus)
+
+multiply1 = a1 * ones
+print(multiply1)
+
+multiply2 = a1.reshape(2, 3) * a2
+print(multiply2)
+
+divided1 = a1 / ones
+print(divided1)
+
+divided2 = a2 / a1.reshape(2, 3)
+print(divided2)
+
+# Numpy Modulo
+divided3 = a1 % 2
+print(divided3)
+
+# Floor devision removes the decimals (rounds down)
+floor_devision = a2 // a1.reshape(2, 3)
+print(divided1)
+
+square1 = a2 ** 2
+print(square)
+
+square2 = np.square(a2)
+print(square2)
+
+expo = np.exp(a1)
+print(expo)
+
+log = np.log(a1)
+print(log)
