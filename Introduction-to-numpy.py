@@ -1,5 +1,6 @@
 import numpy as np
 import pandas as pd
+import timeit
 
 # DatatTypes amd Attributes
 # NumPy 's main datatype is ndarray
@@ -104,7 +105,7 @@ floor_devision = a2 // a1.reshape(2, 3)
 print(divided1)
 
 square1 = a2 ** 2
-print(square)
+print(square1)
 
 square2 = np.square(a2)
 print(square2)
@@ -114,3 +115,46 @@ print(expo)
 
 log = np.log(a1)
 print(log)
+
+# Aggregation
+listy_list = [1, 2, 3]
+print(type(listy_list))
+
+print(sum(listy_list))
+
+print(sum(a1))
+print(np.sum(a1))
+
+# Use Python's methods sum() on Python datatypes
+# Use Numpy's methods np.sum() on NumPy's arrays
+
+massive_array = np.random.random(100000)
+print(massive_array.size)
+
+print(massive_array[:10])
+
+python_time = timeit.timeit(
+    lambda: sum(massive_array),
+    number=100
+)
+
+numpy_time = timeit.timeit(
+    lambda: np.sum(massive_array),
+    number=100
+)
+
+print(f"Python sum: {python_time:.6f} seconds")
+print(f"NumPy sum: {numpy_time:.6f} seconds")
+
+print(np.mean(a2))
+print(np.max(a2))
+
+print(np.min(a2))
+print(np.std(a2))
+
+# Higher Variance = wider range of numbers
+# Lower Variance = Lower range of numbers
+print(np.var(a2))
+
+# Standard deviation = square root of variance
+print(np.sqrt(np.var(a2)))
