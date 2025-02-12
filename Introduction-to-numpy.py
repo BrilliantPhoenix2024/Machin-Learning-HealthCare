@@ -1,6 +1,8 @@
 import numpy as np
 import pandas as pd
 import timeit
+import matplotlib
+import matplotlib.pyplot as plt
 
 # DatatTypes amd Attributes
 # NumPy 's main datatype is ndarray
@@ -158,3 +160,17 @@ print(np.var(a2))
 
 # Standard deviation = square root of variance
 print(np.sqrt(np.var(a2)))
+
+# Demo of std and var
+high_var_array = np.array([1, 100, 200, 300, 4000, 5000])
+low_var_array = np.array([2, 4, 6, 8, 10])
+print(np.var(high_var_array), np.var(low_var_array))
+print(np.std(high_var_array), np.std(low_var_array))
+
+print(np.mean(high_var_array), np.mean(low_var_array))
+
+plt.hist(high_var_array)
+plt.show()
+
+plt.hist(low_var_array)
+plt.show()
