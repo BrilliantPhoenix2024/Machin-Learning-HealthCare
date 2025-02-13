@@ -174,3 +174,17 @@ plt.show()
 
 plt.hist(low_var_array)
 plt.show()
+
+
+# Reshaping & Transposing
+print(a2.shape)
+print(a3.shape)
+a2_reshape = a2.reshape(2, 3, 1)
+
+print(a2_reshape * a3)
+
+# Transpose = Switches the axis'
+print(a2.T)
+print(a2.T.shape)
+print(a3.T)
+print(a3.T.shape)
