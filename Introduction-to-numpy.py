@@ -188,3 +188,17 @@ print(a2.T)
 print(a2.T.shape)
 print(a3.T)
 print(a3.T.shape)
+
+# Dot product
+np.random.seed(0)
+mat1 = np.random.randint(10, size=(5, 3))
+mat2 = np.random.randint(10, size=(5, 3))
+print(mat1.shape, mat2.shape)
+
+# Element-wise multiplication
+print(mat1 * mat2)
+
+# Dot product
+mat3 = np.dot(mat1, mat2.T)
+print(mat3)
+print(mat3.shape)
