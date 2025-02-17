@@ -202,3 +202,13 @@ print(mat1 * mat2)
 mat3 = np.dot(mat1, mat2.T)
 print(mat3)
 print(mat3.shape)
+
+
+# Comparison Operators
+bool_array1 = a1.reshape(2, 3) > a2
+bool_array2 = a1.reshape(2, 3) >= a2
+print(bool_array1.dtype, type(bool_array1))
+bool_array3 = a1 > 5
+print(bool_array3)
+print(a1 == a1)
+print(a1.reshape(2, 3) == a2)
