@@ -212,3 +212,13 @@ bool_array3 = a1 > 5
 print(bool_array3)
 print(a1 == a1)
 print(a1.reshape(2, 3) == a2)
+
+
+# Sorting Arrays
+random_array = np.random.randint(10, size=(3, 5))
+print(np.sort(random_array))
+print(np.argsort(random_array))
+print(np.argmin(a1))
+print(np.argmax(a1))
+print(np.argmax(random_array, axis=0))
+print(np.argmax(random_array, axis=1))
