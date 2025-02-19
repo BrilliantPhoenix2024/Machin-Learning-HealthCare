@@ -3,6 +3,7 @@ import pandas as pd
 import timeit
 import matplotlib
 import matplotlib.pyplot as plt
+from matplotlib.image import imread
 
 # DatatTypes amd Attributes
 # NumPy 's main datatype is ndarray
@@ -222,3 +223,21 @@ print(np.argmin(a1))
 print(np.argmax(a1))
 print(np.argmax(random_array, axis=0))
 print(np.argmax(random_array, axis=1))
+
+# Practical examples in NumPy
+# Turn an image into a NumPy array
+# Read the image
+panda = plt.imread("NumPy_images/panda.png")
+
+# Check the type
+# Check the shape
+# Check the number of dimensions
+print(type(panda), panda.shape, panda.ndim)
+
+# Check the array values
+print(panda[:1])
+
+# Display the image
+plt.imshow(panda)
+plt.axis("off")
+plt.show()
