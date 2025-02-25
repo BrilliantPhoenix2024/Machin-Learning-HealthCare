@@ -72,13 +72,13 @@ axes6.scatter(x, np.sin(x))
 plt.show()
 
 # Create a plot form a Dictionary
-nu_butter_price = {
+nut_butter_price = {
     'Almond_butter': 8,
     'Peanut_butter': 10,
     'Cashew_butter': 12
 }
 fig5, axes7 = plt.subplots()
-axes7.bar(nu_butter_price.keys(), nu_butter_price.values())
+axes7.bar(nut_butter_price.keys(), nut_butter_price.values())
 axes7.set(
     title='Store',
     xlabel='Butter Type',
@@ -86,7 +86,47 @@ axes7.set(
 )
 plt.show()
 
+# 6. Histograms And Subplots
+fig6, axes8 = plt.subplots()
+axes8.barh(list(nut_butter_price.keys()), list(nut_butter_price.values()))
 
+# Make some data for Histogram
+x = np.random.randn(1000)
+fig7, axes9 = plt.subplots()
+axes9.hist(x)
+plt.show()
+
+# Two options for subplots
+# Subplot option 1
+# Plot to each different axes
+# Create 4 subplots
+fig, ((axes0, axes1), (axes2, axes3)) = plt.subplots(
+    nrows=2,
+    ncols=2,
+    figsize=(10, 8)
+)
+
+# Plot 1: Line
+axes0.plot(x, x / 2)
+axes0.set(title='Line Plot')
+
+# Plot 2: Scatter
+axes1.scatter(np.random.random(10), np.random.random(10))
+axes1.set(title='Scatter Plot')
+
+# Plot 3: Bar
+axes2.bar(nut_butter_price.keys(), nut_butter_price.values())
+axes2.set(title='Bar Plot')
+
+# Plot 4: Histogram
+axes3.hist(np.random.randn(1000))
+axes3.set(title='Histogram')
+
+# Adjust spacing
+fig.tight_layout()
+
+# Show all plots together
+plt.show()
 
 
 
