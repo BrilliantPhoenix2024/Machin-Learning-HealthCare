@@ -128,6 +128,21 @@ fig.tight_layout()
 # Show all plots together
 plt.show()
 
+# Subplot option 2
+# Create 4 subplots
+fig8, axes5 = plt.subplots(nrows=2, ncols=2, figsize=(10, 5))
+
+# Subplot option 2
+# Create 4 subplots
+# Plot to each different index
+axes5[0, 0].plot(x, x/2)
+axes5[0, 1].scatter(np.random.random(10), np.random.random(10))
+axes5[1, 0].bar(nut_butter_price.keys(), nut_butter_price.values())
+axes5[1, 1].hist(np.random.randn(1000))
+
+fig8.tight_layout()
+plt.show()
+
 
 
 
