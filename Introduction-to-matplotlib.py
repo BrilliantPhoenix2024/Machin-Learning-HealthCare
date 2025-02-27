@@ -144,6 +144,15 @@ fig8.tight_layout()
 plt.show()
 
 
+# Plotting from Pandas DataFrame
+car_sales = pd.read_csv('car-sales.csv')
+print(car_sales)
+
+ts = pd.Series(np.random.randn(1000), index=pd.date_range('1/1/2020', periods=1000))
+ts = ts.cumsum()
+ts.plot()
+plt.show()
+
 
 
 
