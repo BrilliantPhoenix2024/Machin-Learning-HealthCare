@@ -153,6 +153,26 @@ ts = ts.cumsum()
 ts.plot()
 plt.show()
 
+car_sales['Price'] = car_sales['Price'].str.replace(
+    r'[$,.]', '', regex=True
+)
+
+# Remove last two zeros
+car_sales['Price'] = car_sales['Price'].str[:-2]
+car_sales['Sale Date'] = pd.date_range('1/1/2020', periods=len(car_sales))
+car_sales['Total Sales'] = car_sales['Price'].astype(int).cumsum()
+print(car_sales)
+
+# Let's plot the total sales
+car_sales.plot(x='Sale Date', y='Total Sales')
+plt.show()
+
+# Reassign Price column to int
+car_sales['Price'] = car_sales['Price'].astype(int)
+
+# Plot scatter plot with price column as numeric
+car_sales.plot(x='Odometer (KM)', y='Price', kind='scatter')
+plt.show()
 
 
 
