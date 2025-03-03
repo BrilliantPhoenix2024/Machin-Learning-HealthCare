@@ -174,6 +174,22 @@ car_sales['Price'] = car_sales['Price'].astype(int)
 car_sales.plot(x='Odometer (KM)', y='Price', kind='scatter')
 plt.show()
 
+# Create a bar Graph DataFrame
+x = np.random.rand(10, 4)
 
+# Turn it into a DataFrame
+df = pd.DataFrame(x, columns=['a', 'b', 'c', 'd'])
+
+df.plot.bar()
+plt.show()
+
+car_sales.plot(x='Make', y='Odometer (KM)', kind='bar')
+plt.show()
+
+car_sales['Odometer (KM)'].plot.hist()
+plt.show()
+
+car_sales['Odometer (KM)'].plot.hist(bins=20)
+plt.show()
 
 
