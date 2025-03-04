@@ -192,4 +192,14 @@ plt.show()
 car_sales['Odometer (KM)'].plot.hist(bins=20)
 plt.show()
 
+heart_disease = pd.read_csv('heart-disease.csv')
+print(heart_disease.head())
+
+# Create a Histogram of age
+heart_disease['age'].plot.hist(bins=30)
+plt.show()
+
+heart_disease.plot.hist(figsize=(10, 30), subplots=True)
+plt.show()
+
 
