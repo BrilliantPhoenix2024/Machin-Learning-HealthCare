@@ -202,4 +202,17 @@ plt.show()
 heart_disease.plot.hist(figsize=(10, 30), subplots=True)
 plt.show()
 
+# Use the OO Method
+over_50 = heart_disease[heart_disease['age'] > 50]
+print(over_50.head(), len(over_50))
+
+# Pyplot Method
+over_50.plot(kind='scatter', x='age', y='chol', c='target', figsize=(10, 6))
+plt.show()
+
+# OO Method
+fig, ax = plt.subplots(figsize=(10, 6))
+over_50.plot(kind='scatter', x='age', y='chol', c='target', ax=ax)
+# axes10.set.xlim([45, 100])
+plt.show()
 
