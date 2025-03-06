@@ -210,9 +210,25 @@ print(over_50.head(), len(over_50))
 over_50.plot(kind='scatter', x='age', y='chol', c='target', figsize=(10, 6))
 plt.show()
 
-# OO Method
+# OO Method mixed with pyplot method
 fig, ax = plt.subplots(figsize=(10, 6))
 over_50.plot(kind='scatter', x='age', y='chol', c='target', ax=ax)
 # axes10.set.xlim([45, 100])
+plt.show()
+
+# OO Method from scratch
+fig, ax = plt.subplots(figsize=(10, 6))
+
+# Plot the Data
+scatter = ax.scatter(x=over_50['age'], y=over_50['chol'], c=over_50['target'])
+
+# Customize the plot
+ax.set(title='Heart disease and Colestrol levels', xlabel='Age', ylabel='Colestrol')
+
+# Add a Legend
+ax.legend(*scatter.legend_elements(), title='Target')
+
+# Add a horizantal line
+ax.axhline(over_50['chol'].mean(), linestyle='--')
 plt.show()
 
