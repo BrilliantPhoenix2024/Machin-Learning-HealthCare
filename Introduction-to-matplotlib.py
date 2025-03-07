@@ -232,3 +232,41 @@ ax.legend(*scatter.legend_elements(), title='Target')
 ax.axhline(over_50['chol'].mean(), linestyle='--')
 plt.show()
 
+# Subplots with 2 rows and 1 column
+fig, (ax0, ax1) = plt.subplots(nrows=2, ncols=1, figsize=(10, 10), sharex=True)
+
+# Add Data to ax0
+# First subplot
+scatter = ax0.scatter(x=over_50['age'], y=over_50['chol'], c=over_50['target'])
+
+# Customize ax0
+ax0.set(title='Heart disease and Colestrol levels', ylabel='Colestrol')
+
+# Add a Legend to ax0
+ax0.legend(*scatter.legend_elements(), title='Target')
+
+# Add a horizontal (meanline) line
+ax0.axhline(y=over_50['chol'].mean(), linestyle='--')
+
+# Add data to ax1
+# Second subplot
+scatter = ax1.scatter(x=over_50['age'], y=over_50['thalach'], c=over_50['target'])
+
+# Customize ax1
+ax1.set(title='Heart disease and Max Heart Rate', xlabel='Age', ylabel='Max Heart Rate')
+
+# Add a Legend to ax1
+ax1.legend(*scatter.legend_elements(), title='Target')
+
+# Add a horizontal (mean line) line
+ax1.axhline(y=over_50['thalach'].mean(), linestyle='--')
+
+# Add a Title to the figure
+fig.suptitle('Heart disease Analysis', fontsize=16, fontweight='bold')
+
+# Adjust spacing
+plt.tight_layout()
+
+# Show both plots
+plt.show()
+
