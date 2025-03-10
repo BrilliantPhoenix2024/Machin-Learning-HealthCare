@@ -270,3 +270,19 @@ plt.tight_layout()
 # Show both plots
 plt.show()
 
+# Customizing Matplotlib plots and getting stylish
+
+plt.style.use('ggplot')
+
+car_sales['Price'].plot()
+car_sales.plot(x='Odometer (KM)', y='Price', kind='scatter')
+plt.show()
+
+x = np.random.randn(10, 4)
+df = pd.DataFrame(x, columns=['a', 'b', 'c', 'd'])
+# Customize our plot with the set() method
+ax = df.plot(kind='bar')
+ax.set(title='Random Number Bar Graph from DataFrame', xlabel='Row Number', ylabel='Random number')
+ax.legend().set_visible(True)
+plt.show()
+
