@@ -286,3 +286,49 @@ ax.set(title='Random Number Bar Graph from DataFrame', xlabel='Row Number', ylab
 ax.legend().set_visible(True)
 plt.show()
 
+# Customizing the y and x axis limitiations
+# set the new style
+fig, (ax0, ax1) = plt.subplots(nrows=2, ncols=1, figsize=(10, 10), sharex=True)
+
+# Add Data to ax0
+# First subplot
+scatter = ax0.scatter(x=over_50['age'], y=over_50['chol'], c=over_50['target'])
+
+# Customize ax0
+ax0.set(title='Heart disease and Colestrol levels', ylabel='Colestrol')
+
+# Change the ax0 X axis limits
+ax0.set_xlim([50, 80])
+
+# Add a Legend to ax0
+ax0.legend(*scatter.legend_elements(), title='Target')
+
+# Add a horizontal (meanline) line
+ax0.axhline(y=over_50['chol'].mean(), linestyle='--')
+
+# Add data to ax1
+# Second subplot
+scatter = ax1.scatter(x=over_50['age'], y=over_50['thalach'], c=over_50['target'], cmap='winter')
+
+# Customize ax1
+ax1.set(title='Heart disease and Max Heart Rate', xlabel='Age', ylabel='Max Heart Rate')
+
+# Change the ax1 X axis limits
+ax1.set_xlim([50, 80])
+ax1.set_ylim([60, 200])
+
+# Add a Legend to ax1
+ax1.legend(*scatter.legend_elements(), title='Target')
+
+# Add a horizontal (mean line) line
+ax1.axhline(y=over_50['thalach'].mean(), linestyle='--')
+
+# Add a Title to the figure
+fig.suptitle('Heart disease Analysis', fontsize=16, fontweight='bold')
+
+# Adjust spacing
+plt.tight_layout()
+
+# Show both plots
+plt.show()
+
