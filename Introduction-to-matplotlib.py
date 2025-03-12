@@ -332,3 +332,6 @@ plt.tight_layout()
 # Show both plots
 plt.show()
 
+# Saving And Sharing the Plots
+fig.savefig('Heart_disease_analysis_plot')
+
