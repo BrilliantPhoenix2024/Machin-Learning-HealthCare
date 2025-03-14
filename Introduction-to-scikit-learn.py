@@ -5,17 +5,16 @@
 
 import pandas as pd
 import numpy as np
-from pathlib import Path
+import matplotlib.pyplot as plt
 
-file_path = Path(__file__).resolve().parent / "heart-disease.csv"
-heart_disease = pd.read_csv(file_path)
+heart_disease = pd.read_csv("heart-disease.csv")
 
+# 1- Getting data ready to be used with machine learning
 # Create X (features matrix)
 x = heart_disease.drop("target", axis=1)
 
 # Create y (labels)
 y = heart_disease["target"]
-
 
 # ==========================================
 # 2- Choose the Right Model and Hyperparameters
@@ -35,7 +34,7 @@ print(clf.get_params())
 # ==========================================
 # 3- Fit the Model to the Training Data
 # ==========================================
-
+# Splitting the data into training and test sets
 from sklearn.model_selection import train_test_split
 
 x_train, x_test, y_train, y_test = train_test_split(
@@ -119,14 +118,11 @@ for i in range(10, 100, 10):
 import pickle
 
 # Save the original model (100 estimators)
-model_path = Path(__file__).resolve().parent / "Random_forest_model_1.pkl"
-
-with open(model_path, "wb") as file:
-    pickle.dump(clf, file)
+pickle.dump(clf, open('Random_forest_model_1.pkl', 'wb'))
 
 # Load the saved model
-with open(model_path, "rb") as file:
-    loaded_model = pickle.load(file)
+loaded_model = pickle.load(open('Random_forest_model_1.pkl', 'rb'))
+print(loaded_model.score(x_test, y_test))
 
 # Evaluate the loaded model
 print("\nOriginal model accuracy:")
@@ -145,3 +141,51 @@ loaded_preds = loaded_model.predict(x_test)
 
 print("\nAre predictions identical?")
 print(np.array_equal(original_preds, loaded_preds))
+
+
+# Make sure it's all numerical
+from sklearn.ensemble import RandomForestRegressor
+from sklearn.preprocessing import OneHotEncoder
+from sklearn.compose import ColumnTransformer
+
+# 1. Load dataset
+car_sales = pd.read_csv('car-sales-extended.csv')
+print(car_sales.dtypes)
+
+# 2. Split into X and y
+x = car_sales.drop('Price', axis=1)
+y = car_sales['Price']
+
+# 3. Convert categorical features to numerical
+categorical_features = ["Make", "Colour", 'Doors']
+
+one_hot = OneHotEncoder(handle_unknown="ignore")
+
+transformer = ColumnTransformer(
+    transformers=[
+        ("one_hot", one_hot, categorical_features)
+    ],
+    remainder="passthrough"
+)
+
+transformed_X = transformer.fit_transform(x)
+
+# 4. Split into training and test sets
+X_train, X_test, y_train, y_test = train_test_split(
+    transformed_X,
+    y,
+    test_size=0.2,
+    random_state=42
+)
+
+# 5. Build machine learning model
+model = RandomForestRegressor(
+    n_estimators=100,
+    random_state=42
+)
+
+# 6. Train model
+model.fit(X_train, y_train)
+
+# 7. Evaluate model
+print("Model R2 Score:", model.score(X_test, y_test))
